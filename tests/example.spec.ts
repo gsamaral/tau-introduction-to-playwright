@@ -11,4 +11,12 @@ test('get started link', async ({ page }) => {
   await expect(page).toHaveURL(/.*intro/);
 });
 
+test('@smoke - Check Java Page', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+  await page.getByRole('button', { name: 'Node.js' }).hover();
+  await page.locator('a.dropdown__link', { hasText: 'Java' }).click(); 
+  await expect(page).toHaveURL(/.*java/);
+
+});
+
 
